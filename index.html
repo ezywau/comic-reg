@@ -1,0 +1,53 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COMIC: Competition of MAN Insan Cendekia</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="background"></div>
+
+    <div class="content">
+        <h1 class="animate">COMIC: Competition of MAN Insan Cendekia</h1>
+        <p class="animate">Daftar dan tunjukkan kemampuan terbaikmu!</p>
+
+        <form id="registrationForm" class="animate">
+            <input type="text" name="nama" placeholder="Nama Lengkap" required>
+            <input type="text" name="sekolah" placeholder="Asal Sekolah" required>
+            <input type="tel" name="hp" placeholder="Nomor HP" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <select name="kategori" required>
+                <option value="">Pilih Kategori Lomba</option>
+                <option value="Debat">Debat</option>
+                <option value="Cerdas Cermat">Cerdas Cermat</option>
+                <option value="Essay">Essay</option>
+            </select>
+            <button type="submit">Daftar</button>
+            <div class="message" id="message"></div>
+        </form>
+    </div>
+
+    <script>
+        const scriptURL = 'GANTI_DENGAN_SCRIPT_URL_ANDA';
+        const form = document.forms['registrationForm'];
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+                .then(response => {
+                    document.getElementById('message').innerHTML = "Pendaftaran Berhasil!";
+                    form.reset();
+                })
+                .catch(error => {
+                    document.getElementById('message').innerHTML = "Pendaftaran Gagal. Coba lagi.";
+                    console.error('Error!', error.message);
+                });
+        });
+    </script>
+
+</body>
+</html>
