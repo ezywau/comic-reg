@@ -4,84 +4,118 @@ body, html {
     padding: 0;
     height: 100%;
     font-family: 'Poppins', sans-serif;
+    color: #FFD700;
     overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 
-.background {
+#bg-video {
     position: fixed;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background: url('https://images.unsplash.com/photo-1542281286-9e0a16bb7366') no-repeat center center/cover;
-    animation: moveBackground 20s linear infinite;
+    min-width: 100%;
+    min-height: 100%;
     z-index: -1;
-    filter: brightness(0.7);
+    object-fit: cover;
+    filter: brightness(0.3);
 }
 
-@keyframes moveBackground {
-    0% { background-position: 0% 50%; }
-    50% { background-position: 100% 50%; }
-    100% { background-position: 0% 50%; }
-}
-
-.content {
-    position: relative;
-    z-index: 1;
+.header {
     text-align: center;
-    padding: 50px 20px;
-    color: white;
+    padding: 100px 20px 50px 20px;
 }
 
-.animate {
-    opacity: 0;
-    transform: translateY(20px);
-    animation: fadeInUp 1s forwards;
+h1 {
+    font-size: 3em;
+    margin: 0;
 }
 
-.animate:nth-child(1) { animation-delay: 0.5s; }
-.animate:nth-child(2) { animation-delay: 1s; }
-.animate:nth-child(3) { animation-delay: 1.5s; }
-
-@keyframes fadeInUp {
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+p {
+    margin-top: 10px;
+    font-size: 1.2em;
 }
 
-form {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 20px;
-    border-radius: 10px;
+.cta-button {
+    margin-top: 20px;
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #FFD700;
+    color: #000;
+    border-radius: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #e6c200;
+    transform: scale(1.05);
+}
+
+.form-container {
+    max-width: 600px;
+    background: rgba(0, 0, 0, 0.6);
+    margin: 50px auto;
+    padding: 30px;
+    border-radius: 20px;
     backdrop-filter: blur(10px);
-    margin-top: 30px;
-    max-width: 500px;
-    margin-left: auto;
-    margin-right: auto;
+    text-align: center;
 }
 
-input, select, button {
+form input, form select, form button {
     width: 100%;
     margin-top: 10px;
-    padding: 10px;
+    padding: 12px;
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
+    font-size: 1em;
 }
 
-button {
-    background-color: #4CAF50;
-    color: white;
-    font-size: 16px;
+form input, form select {
+    background: rgba(255, 255, 255, 0.1);
+    color: #FFD700;
+}
+
+form input:focus, form select:focus {
+    background: rgba(255, 215, 0, 0.2);
+    outline: none;
+}
+
+form button {
+    background-color: #FFD700;
+    color: #000;
     margin-top: 20px;
+    font-weight: bold;
 }
 
-button:hover {
-    background-color: #45a049;
+form button:hover {
+    background-color: #e6c200;
     cursor: pointer;
+}
+
+.loading-spinner {
+    margin: 20px auto;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #FFD700;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
 
 .message {
     margin-top: 20px;
     font-weight: bold;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9em;
+    background: #111;
 }
