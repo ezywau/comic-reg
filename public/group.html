@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Pendaftaran Kolektif</title>
+  <style>
+    body {
+      font-family: sans-serif;
+      background: linear-gradient(120deg, #f6d365, #fda085);
+      padding: 20px;
+      margin: 0;
+    }
+
+    h1 {
+      text-align: center;
+      color: #fff;
+    }
+
+    form {
+      max-width: 800px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    }
+
+    .participant {
+      border: 1px solid #ccc;
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    label {
+      display: block;
+      margin-top: 10px;
+    }
+
+    input, select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      border: none;
+      background: #ff9900;
+      color: white;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .add-btn {
+      background: #28a745;
+    }
+
+    .remove-btn {
+      background: #dc3545;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Pendaftaran Kolektif</h1>
+
+  <form id="groupForm">
+    <div id="participants">
+      <div class="participant">
+        <label>Nama Peserta</label>
+        <input type="text" name="nama[]" required>
+
+        <label>Asal Sekolah</label>
+        <input type="text" name="sekolah[]" required>
+
+        <label>Jenjang Sekolah</label>
+        <select name="jenjang[]" required>
+          <option value="SD">SD</option>
+          <option value="SMP">SMP</option>
+          <option value="SMA">SMA</option>
+        </select>
+
+        <label>Email</label>
+        <input type="email" name="email[]" required>
+
+        <label>Lomba yang Diikuti</label>
+        <input type="text" name="lomba[]" required>
+
+        <button type="button" class="remove-btn" onclick="removeParticipant(this)">Hapus Peserta</button>
+      </div>
+    </div>
+
+    <button type="button" class="add-btn" onclick="addParticipant()">+ Tambah Peserta</button>
+    <button type="submit">Kirim</button>
+  </form>
+
+  <script>
+    const scriptURL = "https://script.google.com/macros/s/AKfycbxo9tkaA4zovGNWZP9aFIJ-d0juG7dpZL9aOmuf15ttNY_ANhf7dl_nWJOTq1AQpqA2pw/exec";
+
+    function addParticipant() {
+      const container = document.createElement('div');
+      container.classList.add('participant');
+      container.innerHTML = `
+        <label>Nama Peserta</label>
+        <input type="text" name="nama[]" required>
+        <label>Asal Sekolah</label>
+        <input type="text" name="sekolah[]" required>
+        <label>Jenjang Sekolah</label>
+        <select name="jenjang[]" required>
+          <option value="SD">SD</option>
+          <option value="SMP">SMP</option>
+          <option value="SMA">SMA</option>
+        </select>
+        <label>Email</label>
+        <input type="email" name="email[]" required>
+        <label>Lomba yang Diikuti</label>
+        <input type="text" name="lomba[]" required>
+        <button type="button" class="remove-btn" onclick="removeParticipant(this)">Hapus Peserta</button>
+      `;
+      document.getElementById('participants').appendChild(container);
+    }
+
+    function removeParticipant(button) {
+      button.parentElement.remove();
+    }
+
+    document.getElementById('groupForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+
+      const form = new FormData(e.target);
+      const participantsCount = form.getAll("nama[]").length;
+
+      for (let i = 0; i < participantsCount; i++) {
+        const data = new URLSearchParams();
+        data.append("nama", form.getAll("nama[]")[i]);
+        data.append("sekolah", form.getAll("sekolah[]")[i]);
+        data.append("jenjang", form.getAll("jenjang[]")[i]);
+        data.append("email", form.getAll("email[]")[i]);
+        data.append("lomba", form.getAll("lomba[]")[i]);
+
+        fetch(scriptURL, {
+          method: "POST",
+          body: data
+        }).then(response => {
+          if (i === participantsCount - 1) {
+            alert("Data berhasil dikirim!");
+            e.target.reset();
+            document.getElementById("participants").innerHTML = ""; // Reset all fields
+            addParticipant(); // Add one blank again
+          }
+        }).catch(err => {
+          alert("Terjadi kesalahan: " + err.message);
+        });
+      }
+    });
+
+    // Tambahkan peserta pertama saat halaman dimuat
+    window.onload = addParticipant;
+  </script>
+</body>
+</html>
