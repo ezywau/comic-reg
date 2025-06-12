@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Raleway:wght@400&display=swap');
+
+body, html {
+  font-family: 'Raleway', sans-serif;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: 'Raleway', sans-serif;
+    color: #FFD700;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+#bg-video {
+    position: fixed;
+    top: 0;
+    left: 0;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -1;
+    object-fit: cover;
+    filter: brightness(0.3);
+}
+
+.header {
+    text-align: center;
+    padding: 100px 20px 50px 20px;
+}
+
+h1 {
+    font-size: 3em;
+    margin: 0;
+}
+
+p {
+    margin-top: 10px;
+    font-size: 1.2em;
+}
+
+.cta-button {
+    margin-top: 20px;
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #FFD700;
+    color: #000;
+    border-radius: 30px;
+    font-weight: bold;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #e6c200;
+    transform: scale(1.05);
+}
+
+.form-container {
+    max-width: 600px;
+    background: rgba(0, 0, 0, 0.6);
+    margin: 50px auto;
+    padding: 30px;
+    border-radius: 20px;
+    backdrop-filter: blur(10px);
+    text-align: center;
+}
+
+form input, form select, form button {
+    width: 100%;
+    margin-top: 10px;
+    padding: 12px;
+    border: none;
+    border-radius: 10px;
+    font-size: 1em;
+}
+
+form input, form select {
+    background: rgba(255, 255, 255, 0.1);
+    color: #FFD700;
+}
+
+form input:focus, form select:focus {
+    background: rgba(255, 215, 0, 0.2);
+    outline: none;
+}
+
+form button {
+    background-color: #FFD700;
+    color: #000;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+form button:hover {
+    background-color: #e6c200;
+    cursor: pointer;
+}
+
+.loading-spinner {
+    margin: 20px auto;
+    border: 5px solid #f3f3f3;
+    border-top: 5px solid #FFD700;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.message {
+    margin-top: 20px;
+    font-weight: bold;
+}
+h1, h2 {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 700;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9em;
+    background: #111;
+}

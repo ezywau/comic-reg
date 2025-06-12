@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="id">
 <head>
@@ -64,5 +65,94 @@
     <p>Coming Soon.</p>
   </section>
 
+=======
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>COMIC: Competition of MAN Insan Cendekia</title>
+</head>
+<body>
+    <video autoplay muted loop playsinline id="bg-video">
+        <source src="background.mp4" type="video/mp4" />
+    </video>
+
+    <div class="header">
+        <h1>COMIC 2025</h1>
+        <p>Competition of MAN Insan Cendekia</p>
+        <a href="#daftar" class="cta-button">Daftar Sekarang</a>
+    </div>
+
+    <div class="form-container" id="daftar">
+        <h2>Formulir Pendaftaran</h2>
+        <form id="registrationForm" name="registrationForm">
+            <input type="text" name="nama" placeholder="Nama Lengkap" required />
+            <input type="text" name="sekolah" placeholder="Asal Sekolah" required />
+            <select name="jenjang" required>
+                <option value="">Pilih Jenjang Sekolah</option>
+                <option value="SD">SD</option>
+                <option value="SMP">SMP</option>
+                <option value="SMA">SMA</option>
+                <option value="Lainnya">Lainnya</option>
+            </select>
+            <input type="tel" name="hp" placeholder="Nomor HP" required />
+            <input type="email" name="email" placeholder="Email" required />
+            <select name="kategori" required>
+                <option value="">Pilih Kategori Lomba</option>
+                <option value="Debat">Debat</option>
+                <option value="Cerdas Cermat">Cerdas Cermat</option>
+                <option value="Essay">Essay</option>
+            </select>
+            <select name="tipe_pendaftaran" required>
+                <option value="">Pilih Tipe Pendaftaran</option>
+                <option value="Individual">Individual</option>
+                <option value="Kolektif">Kolektif</option>
+            </select>
+            <button type="submit">Daftar</button>
+            <div id="loading" class="loading-spinner" style="display: none;"></div>
+            <div class="message" id="message"></div>
+        </form>
+    </div>
+
+    <footer>
+        <p>© 2024 COMIC Event. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzyxSAivejU-gYdrg-2zliZSKtoMgOmx4PBHfeM2-0dDsjA1Oyx-UAKUfpdAOoFjYVT/exec';
+        const form = document.forms['registrationForm'];
+        const loading = document.getElementById('loading');
+        const message = document.getElementById('message');
+
+        form.addEventListener('submit', e => {
+            e.preventDefault();
+            let isValid = true;
+            [...form.elements].forEach(input => {
+                if (input.hasAttribute('required') && !input.value) isValid = false;
+            });
+            if (!isValid) {
+                message.innerHTML = "Harap lengkapi semua bidang!";
+                return;
+            }
+            loading.style.display = "block";
+            message.innerHTML = "";
+
+            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                .then(response => {
+                    loading.style.display = "none";
+                    message.innerHTML = "Pendaftaran Berhasil!";
+                    form.reset();
+                })
+                .catch(error => {
+                    loading.style.display = "none";
+                    message.innerHTML = "Pendaftaran Gagal. Coba lagi.";
+                    console.error('Error!', error.message);
+                });
+        });
+    </script>
+>>>>>>> ce88076eeb6696fa7f0d08bedda93d44fea26289
 </body>
 </html>
