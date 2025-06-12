@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>COMIC 2025</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100%;
+      overflow-x: hidden;
+    }
+
+    .video-bg {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: -2;
+    }
+
+    .overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      z-index: -1;
+    }
+  </style>
+</head>
+<body class="text-white min-h-screen flex flex-col">
+
+  <!-- Background Video -->
+  <video class="video-bg" autoplay muted loop playsinline>
+    <source src="background.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+  <div class="overlay"></div>
+
+  <!-- Hero Section -->
+  <section class="flex flex-col items-center justify-center min-h-screen text-center px-4">
+    <h1 class="text-5xl md:text-7xl font-bold mb-4">
+      COMIC <span class="block md:inline">2025</span>
+    </h1>
+    <div class="flex flex-col sm:flex-row gap-4 mt-6">
+      <a href="#" class="px-6 py-3 border-2 border-yellow-400 text-yellow-400 rounded-lg font-semibold hover:bg-yellow-400 hover:text-black transition duration-300">
+        Pendaftaran Individu
+      </a>
+      <a href="#" class="px-6 py-3 border-2 border-yellow-400 text-yellow-400 rounded-lg font-semibold hover:bg-yellow-400 hover:text-black transition duration-300">
+        Pendaftaran Kolektif
+      </a>
+    </div>
+  </section>
+
+  <!-- Scrollable Section -->
+  <section class="py-20 text-center text-yellow-200 text-xl font-semibold px-4">
+    <p>Coming Soon.</p>
+  </section>
+
+</body>
+</html>

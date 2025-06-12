@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Form Pendaftaran Individu</title>
+  <style>
+    body {
+      font-family: 'Raleway', sans-serif;
+      background: #000;
+      color: #FFD700;
+      padding: 40px;
+      margin: 0;
+    }
+    h1 {
+      text-align: center;
+    }
+    form {
+      max-width: 500px;
+      margin: 0 auto;
+      background: rgba(255,255,255,0.05);
+      padding: 20px;
+      border-radius: 10px;
+      backdrop-filter: blur(5px);
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      margin-bottom: 5px;
+    }
+    input, select, button {
+      width: 100%;
+      padding: 10px;
+      font-size: 1em;
+      border-radius: 5px;
+      border: none;
+    }
+    button {
+      margin-top: 20px;
+      background-color: #FFD700;
+      color: #000;
+      font-weight: bold;
+    }
+    button:hover {
+      background-color: #e6c200;
+      cursor: pointer;
+    }
+    .message {
+      text-align: center;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>Pendaftaran Individu</h1>
+  <form id="regForm">
+    <label for="nama">Nama Lengkap</label>
+    <input type="text" name="nama" required>
+
+    <label for="asal_sekolah">Asal Sekolah</label>
+    <input type="text" name="asal_sekolah" required>
+
+    <label for="jenjang">Jenjang Sekolah</label>
+    <select name="jenjang" required>
+      <option value="">Pilih Jenjang</option>
+      <option value="SMP">SMP</option>
+      <option value="SMA">SMA</option>
+    </select>
+
+    <label for="email">Email</label>
+    <input type="email" name="email" required>
+
+    <label for="no_hp">Nomor HP</label>
+    <input type="tel" name="no_hp" required>
+
+    <label for="lomba">Lomba yang Diikuti</label>
+    <select name="lomba" required>
+      <option value="">Pilih Lomba</option>
+      <option value="Desain Poster">Desain Poster</option>
+      <option value="Pidato">Pidato</option>
+      <option value="Debat">Debat</option>
+      <option value="Menulis Cerpen">Menulis Cerpen</option>
+    </select>
+
+    <input type="hidden" name="type" value="individu" />
+    <button type="submit">Kirim</button>
+  </form>
+
+  <div class="message" id="message"></div>
+
+  <script>
+    document.getElementById("regForm").addEventListener("submit", function (e) {
+      e.preventDefault();
+      const form = e.target;
+      const data = new FormData(form);
+
+      fetch("https://script.google.com/macros/s/AKfycbxo9tkaA4zovGNWZP9aFIJ-d0juG7dpZL9aOmuf15ttNY_ANhf7dl_nWJOTq1AQpqA2pw/exec", {
+        method: "POST",
+        body: data
+      })
+      .then(response => response.text())
+      .then(msg => {
+        document.getElementById("message").innerText = "Pendaftaran berhasil! 🎉";
+        form.reset();
+      })
+      .catch(err => {
+        document.getElementById("message").innerText = "Terjadi kesalahan. Silakan coba lagi.";
+        console.error(err);
+      });
+    });
+  </script>
+</body>
+</html>
