@@ -43,9 +43,11 @@
     Your browser does not support the video tag.
   </video>
   <div class="overlay"></div>
+<!-- Purge‑safelist for Tailwind to include needed classes -->
+<div class="hidden opacity-0 opacity-100 scale-90 -translate-y-8 transform transition-all transition-opacity duration-500 ease-in-out"></div>
 
   <!-- Scroll Navbar -->
-  <nav id="scroll-navbar" class="fixed top-0 left-0 w-full px-6 py-4 bg-black bg-opacity-70 text-white flex justify-between items-center opacity-0 transition-opacity duration-500 z-50">
+  <nav id="scroll-navbar" class="fixed top-0 left-0 w-full px-6 py-4 bg-black bg-opacity-70 text-white flex justify-between items-center opacity-0 transition-opacity duration-500 transform z-50">
     <div id="navbar-title" class="font-bold text-yellow-400 text-lg opacity-0 transition-opacity duration-500">COMIC 2025</div>
     <ul class="flex space-x-6 text-sm">
       <li><a href="#about" class="hover:text-yellow-400">Tentang</a></li>
@@ -59,8 +61,9 @@
   <!-- Hero Section -->
   <section class="flex flex-col items-center justify-center min-h-screen text-center px-4">
     <h1 id="hero-title" class="text-5xl md:text-7xl font-bold mb-4 transition-all transform duration-500 ease-in-out">
-      COMIC <span class="block md:inline">2025</span>
-    </h1>
+  COMIC <span class="block md:inline">2025</span>
+</h1>
+
 
    
     <div class="flex flex-col sm:flex-row gap-4 mt-6">
