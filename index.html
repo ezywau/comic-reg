@@ -44,19 +44,28 @@
   </video>
   <div class="overlay"></div>
 
+  <!-- Scroll Navbar -->
+  <nav id="scroll-navbar" class="fixed top-0 left-0 w-full px-6 py-4 bg-black bg-opacity-70 text-white flex justify-between items-center opacity-0 transition-opacity duration-500 z-50">
+    <div id="navbar-title" class="font-bold text-yellow-400 text-lg opacity-0 transition-opacity duration-500">COMIC 2025</div>
+    <ul class="flex space-x-6 text-sm">
+      <li><a href="#about" class="hover:text-yellow-400">Tentang</a></li>
+      <li><a href="#flip-countdown" class="hover:text-yellow-400">Countdown</a></li>
+      <li><a href="pendaftaran-individu.html" class="bg-yellow-400 text-black px-4 py-1 rounded hover:bg-yellow-300 font-semibold">Daftar</a></li>
+    </ul>
+  </nav>
+ <!-- Tailwind safety preload -->
+    <div class="hidden scale-90 -translate-y-8 opacity-0 opacity-100 transform"></div>
+
   <!-- Hero Section -->
   <section class="flex flex-col items-center justify-center min-h-screen text-center px-4">
-    <h1 class="text-5xl md:text-7xl font-bold mb-4">
+    <h1 id="hero-title" class="text-5xl md:text-7xl font-bold mb-4 transition-all transform duration-500 ease-in-out">
       COMIC <span class="block md:inline">2025</span>
     </h1>
-    <div class="flex flex-col sm:flex-row gap-4 mt-6">
-<a href="pendaftaran-individu.html" class="px-6 py-3 border-2 border-yellow-400 text-yellow-400 rounded-lg font-semibold hover:bg-yellow-400 hover:text-black transition duration-300">
-  Pendaftaran Individu
-</a>
-<a href="pendaftaran-kolektif.html" class="px-6 py-3 border-2 border-yellow-400 text-yellow-400 rounded-lg font-semibold hover:bg-yellow-400 hover:text-black transition duration-300">
-  Pendaftaran Kolektif
-</a>
 
+   
+    <div class="flex flex-col sm:flex-row gap-4 mt-6">
+      <a href="pendaftaran-individu.html" class="px-6 py-3 border-2 border-yellow-400 text-yellow-400 rounded-lg font-semibold hover:bg-yellow-400 hover:text-black transition duration-300">Pendaftaran Individu</a>
+      <a href="pendaftaran-kolektif.html" class="px-6 py-3 border-2 border-yellow-400 text-yellow-400 rounded-lg font-semibold hover:bg-yellow-400 hover:text-black transition duration-300">Pendaftaran Kolektif</a>
     </div>
   </section>
 
@@ -64,33 +73,22 @@
   <section class="py-20 text-center text-yellow-200 text-xl font-semibold px-4">
     <p>COOKIES ON DEEZ NUTS</p>
   </section>
- <!-- Event Description Section -->
-  <section class="bg-black bg-opacity-70 text-white py-12 px-6 text-center">
+
+  <!-- Event Description Section -->
+  <section id="about" class="bg-black bg-opacity-70 text-white py-12 px-6 text-center">
     <h2 class="text-3xl font-bold mb-4">Tentang COMIC 2025</h2>
     <p class="max-w-3xl mx-auto text-lg">
-      COMIC (Competition of MAN Insan Cendekia) 2025 adalah ajang kompetisi nasional tahunan yang mempertemukan siswa-siswi terbaik dari seluruh Indonesia untuk berkompetisi dalam berbagai bidang seperti debat, cerdas cermat, dan essay. Acara ini bertujuan untuk mengasah potensi, membangun jejaring, serta menumbuhkan semangat kompetisi yang sehat dan inspiratif.
+      COMIC (Competition of MAN Insan Cendekia) 2025 adalah ajang kompetisi nasional tahunan yang mempertemukan siswa-siswi terbaik dari seluruh Indonesia untuk berkompetisi dalam berbagai bidang seperti debat, cerdas cermat, dan essay.
     </p>
   </section>
 
   <!-- Countdown Section -->
-  <section class="flex justify-center items-center py-16 bg-black bg-opacity-60 backdrop-blur-sm">
-    <div class="flex space-x-4 text-white text-center" id="flip-countdown">
-      <div class="flip-unit">
-        <div class="flip-digit" id="days">00</div>
-        <div class="label">Hari</div>
-      </div>
-      <div class="flip-unit">
-        <div class="flip-digit" id="hours">00</div>
-        <div class="label">Jam</div>
-      </div>
-      <div class="flip-unit">
-        <div class="flip-digit" id="minutes">00</div>
-        <div class="label">Menit</div>
-      </div>
-      <div class="flip-unit">
-        <div class="flip-digit" id="seconds">00</div>
-        <div class="label">Detik</div>
-      </div>
+  <section id="flip-countdown" class="flex justify-center items-center py-16 bg-black bg-opacity-60 backdrop-blur-sm">
+    <div class="flex space-x-4 text-white text-center">
+      <div class="flip-unit"><div class="flip-digit" id="days">00</div><div class="label">Hari</div></div>
+      <div class="flip-unit"><div class="flip-digit" id="hours">00</div><div class="label">Jam</div></div>
+      <div class="flip-unit"><div class="flip-digit" id="minutes">00</div><div class="label">Menit</div></div>
+      <div class="flip-unit"><div class="flip-digit" id="seconds">00</div><div class="label">Detik</div></div>
     </div>
   </section>
 
@@ -98,40 +96,32 @@
   <section class="py-12 px-6 text-center bg-black bg-opacity-70">
     <h2 class="text-3xl text-white font-bold mb-6">Lokasi Acara</h2>
     <div class="max-w-4xl mx-auto">
-      <iframe
-        class="w-full h-96 rounded-lg shadow-lg"
+      <iframe class="w-full h-96 rounded-lg shadow-lg"
         src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3974.8205616881405!2d97.73662337365158!3d4.969473595006748!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x303801011cba88b9%3A0x1650b5445529c5cb!2sMAN%20Insan%20Cendekia%20Aceh%20Timur!5e0!3m2!1sen!2sid!4v1749749193653!5m2!1sen!2sid"
-        allowfullscreen=""
-        loading="lazy"
-        referrerpolicy="no-referrer-when-downgrade"
-      ></iframe>
+        allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
     </div>
   </section>
 
   <!-- Countdown Script -->
   <script>
     const targetDate = new Date("2025-08-20T08:00:00").getTime();
-
     function updateFlipCountdown() {
       const now = new Date().getTime();
       const distance = targetDate - now;
-
       if (distance < 0) {
         document.getElementById("flip-countdown").innerHTML = "Acara Telah Dimulai!";
         return;
       }
-
       const timeUnits = {
         days: Math.floor(distance / (1000 * 60 * 60 * 24)),
         hours: Math.floor((distance / (1000 * 60 * 60)) % 24),
         minutes: Math.floor((distance / 1000 / 60) % 60),
         seconds: Math.floor((distance / 1000) % 60),
       };
-
       for (let unit in timeUnits) {
         const el = document.getElementById(unit);
         const newValue = String(timeUnits[unit]).padStart(2, "0");
-
         if (el.innerText !== newValue) {
           el.classList.add("animate");
           setTimeout(() => {
@@ -141,45 +131,68 @@
         }
       }
     }
-
     setInterval(updateFlipCountdown, 1000);
     updateFlipCountdown();
   </script>
-    <footer>
-        <p>© 2025 COMIC Event. All rights reserved.</p>
-    </footer>
 
-    <script>
-        const scriptURL = 'https://script.google.com/macros/s/AKfycbzyxSAivejU-gYdrg-2zliZSKtoMgOmx4PBHfeM2-0dDsjA1Oyx-UAKUfpdAOoFjYVT/exec';
-        const form = document.forms['registrationForm'];
-        const loading = document.getElementById('loading');
-        const message = document.getElementById('message');
+  <!-- Scroll Behavior Script -->
+  <script>
+    window.addEventListener('scroll', function () {
+      const navbar = document.getElementById('scroll-navbar');
+      const heroTitle = document.getElementById('hero-title');
+      const navbarTitle = document.getElementById('navbar-title');
 
-        form.addEventListener('submit', e => {
-            e.preventDefault();
-            let isValid = true;
-            [...form.elements].forEach(input => {
-                if (input.hasAttribute('required') && !input.value) isValid = false;
-            });
-            if (!isValid) {
-                message.innerHTML = "Harap lengkapi semua bidang!";
-                return;
-            }
-            loading.style.display = "block";
-            message.innerHTML = "";
+      const show = window.scrollY > 80;
 
-            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
-                .then(response => {
-                    loading.style.display = "none";
-                    message.innerHTML = "Pendaftaran Berhasil!";
-                    form.reset();
-                })
-                .catch(error => {
-                    loading.style.display = "none";
-                    message.innerHTML = "Pendaftaran Gagal. Coba lagi.";
-                    console.error('Error!', error.message);
-                });
+      navbar.classList.toggle('opacity-100', show);
+      navbar.classList.toggle('opacity-0', !show);
+
+      heroTitle.classList.toggle('opacity-0', show);
+      heroTitle.classList.toggle('scale-90', show);
+      heroTitle.classList.toggle('-translate-y-8', show);
+
+      navbarTitle.classList.toggle('opacity-100', show);
+      navbarTitle.classList.toggle('opacity-0', !show);
+    });
+  </script>
+
+  <!-- Optional Form Script if needed -->
+  <script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzyxSAivejU-gYdrg-2zliZSKtoMgOmx4PBHfeM2-0dDsjA1Oyx-UAKUfpdAOoFjYVT/exec';
+    const form = document.forms['registrationForm'];
+    if (form) {
+      const loading = document.getElementById('loading');
+      const message = document.getElementById('message');
+      form.addEventListener('submit', e => {
+        e.preventDefault();
+        let isValid = true;
+        [...form.elements].forEach(input => {
+          if (input.hasAttribute('required') && !input.value) isValid = false;
         });
-    </script>
+        if (!isValid) {
+          message.innerHTML = "Harap lengkapi semua bidang!";
+          return;
+        }
+        loading.style.display = "block";
+        message.innerHTML = "";
+        fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+          .then(response => {
+            loading.style.display = "none";
+            message.innerHTML = "Pendaftaran Berhasil!";
+            form.reset();
+          })
+          .catch(error => {
+            loading.style.display = "none";
+            message.innerHTML = "Pendaftaran Gagal. Coba lagi.";
+            console.error('Error!', error.message);
+          });
+      });
+    }
+  </script>
+
+  <!-- Footer -->
+  <footer class="text-center py-6 text-sm text-gray-400">
+    <p>© 2025 COMIC Event. All rights reserved.</p>
+  </footer>
 </body>
 </html>
